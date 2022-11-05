@@ -43,7 +43,7 @@ echo "-----------------------------------------------------"
 echo "Modificando el fichero /etc/hostname..."
 echo "-----------------------------------------------------"
 ip=$(virsh -c qemu:///system domifaddr maquina1 | grep -oP '10.10.20.\d{1,3}')
-ssh -i /home/oscar/.ssh/id_ecdsa debian@$ip -o "StrictHostKeyChecking no" "sudo -- bash -c 'echo 'maquina1' > /etc/hostname'" &> /dev/null
+ssh -i id_ecdsa debian@$ip -o "StrictHostKeyChecking no" "sudo -- bash -c 'echo 'maquina1' > /etc/hostname'" &> /dev/null
 sleep 5s
 
 # Crea un volumen adicional de 1 GiB de tamaño en formato RAW ubicado en el pool por defecto
